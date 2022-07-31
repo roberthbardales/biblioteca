@@ -15,7 +15,7 @@ class Lector(models.Model):
     )
     edad = models.PositiveIntegerField(default=0)
     def __str__(self):
-        return self.nombres()
+        return self.nombres
 
 class Prestamo(models.Model):
     lector = models.ForeignKey(
@@ -28,8 +28,9 @@ class Prestamo(models.Model):
     )
     fecha_prestamo = models.DateField()
     fecha_devolucion = models.DateField(
-        blank=True,null=True
+        blank=True,
+        null=True
     )
     devuelto = models.BooleanField()
     def __str__(self):
-        return self.libro.titulo()
+        return self.libro.titulo

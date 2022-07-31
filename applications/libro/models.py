@@ -15,6 +15,7 @@ class Libro(models.Model):
         on_delete=models.CASCADE
     )
     autores = models.ManyToManyField(Autor)
+    
     titulo = models.CharField(
         max_length=50
     )
