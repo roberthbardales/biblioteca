@@ -2,6 +2,7 @@ from django.db import models
 
 from applications.autor.models import Autor
 
+from .managers import LibroManager
 # Create your models here.
 
 
@@ -22,13 +23,11 @@ class Libro(models.Model):
     titulo = models.CharField(
         max_length=50
     )
-    fecha = models.DateField(
-        'Fecha de Lanzamiento'
-    )
-    portada = models.ImageField(
-        upload_to='portada'
-    )
+    fecha = models.DateField('Fecha de Lanzamiento')
+    portada = models.ImageField(upload_to='portada')
     visitas = models.PositiveIntegerField()
+
+    objects = LibroManager()
 
     def __str__(self):
         return self.titulo
