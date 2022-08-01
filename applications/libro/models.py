@@ -10,7 +10,7 @@ class Categoria(models.Model):
     nombre = models.CharField(max_length=30)
 
     def __str__(self):
-        return self.nombre
+        return str(self.id) + ' - '+ self.nombre
 
 
 class Libro(models.Model):
@@ -32,3 +32,8 @@ class Libro(models.Model):
     def __str__(self):
         return self.titulo
 
+    def listar_libros_categoria(self,categoria):
+
+        return self.filter(
+            categoria__id=categoria
+        ).order_by('titulo')

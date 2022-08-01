@@ -10,4 +10,10 @@ urlpatterns = [
         views.ListLibros.as_view(),
         name="libros"
     ),
+    path(
+        'libros-2/',
+        views.ListLibros2.as_view(),
+        name="libros2"
+    ),
+
 ]

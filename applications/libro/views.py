@@ -1,12 +1,9 @@
 
 from django.shortcuts import render
 
-# Create your views here.
 from django.views.generic import ListView
 
-
 from .models import Libro
-
 
 class ListLibros(ListView):
     context_object_name = 'lista_libros'
@@ -23,4 +20,12 @@ class ListLibros(ListView):
         if f1 and f2:
             return Libro.objects.listar_libros2(palabra_clave,f1,f2)
         else:
-            return Libro.objects.listar_libros(palabra_clave)    
+            return Libro.objects.listar_libros(palabra_clave)  
+
+            
+class ListLibros2(ListView):
+    context_object_name = 'lista_libros'
+    template_name = 'libro/lista2.html'
+
+    def get_queryset(self):
+        return Libro.objects.listar_libros_categoria('1')

@@ -13,7 +13,7 @@ class LibroManager(models.Manager):
         )
         return resultado
 
-    def listar_libros2(self,kword,fecha1,fecha2):
+    def listar_libros3(self,kword,fecha1,fecha2):
 
         date1=datetime.datetime.strptime(fecha1,"%Y-%m-%d").date()
         date2=datetime.datetime.strptime(fecha2,"%Y-%m-%d").date()
@@ -23,3 +23,8 @@ class LibroManager(models.Manager):
             fecha__range=(date1,date2)
         )
         return resultado
+
+    def listar_libros_categoria(self,categoria):
+        return self.filter(
+            categoria__id=categoria
+        ).order_by('titulo')
