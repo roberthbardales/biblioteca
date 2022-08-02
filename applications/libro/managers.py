@@ -37,6 +37,19 @@ class LibroManager(models.Manager):
         #   from applications.libro.models import *
         #   Libro.objects.add_autor_libro('2','4')
         return libro
+    
+    def num_libros_prestados(self):
+        resultado=self.annotate(
+            num_prestados=Count('libro_prestamo')
+        )
+        for r in resultado:
+            print('=========')
+            print(r,r.num_prestados)
+
+        #   from applications.libro.models import * 
+        #   Libro.objects.num_libros_prestados()
+
+        return resultado
 
     def libros_num_prestamos(self):
         resultado= self.aggregate(

@@ -17,3 +17,19 @@ class PrestamoManager(models.Manager):
         #   from applications.lector.models import * 
         #   Prestamo.objects.libros_promedio_edades()
         return resultado
+    def num_libros_prestados(self):
+        resultado=self.values(
+            'libro'
+        ).annotate(
+            num_prestados=Count('libro')
+        )
+        for r in resultado:
+            print('=========')
+            print(r,r['num_prestados'])
+
+        #   from applications.lector.models import * 
+        #   Prestamo.objects.num_libros_prestados()
+
+        return resultado
+
+
