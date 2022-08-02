@@ -1,6 +1,10 @@
 from django.db import models
-
+#from locasl apps
 from applications.libro.models import Libro
+# from managers
+
+from .managers import PrestamoManager
+
 
 # Create your models here.
 class Lector(models.Model):
@@ -33,5 +37,7 @@ class Prestamo(models.Model):
         null=True
     )
     devuelto = models.BooleanField()
+
+    objects = PrestamoManager()
     def __str__(self):
         return self.libro.titulo
