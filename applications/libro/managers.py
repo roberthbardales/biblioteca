@@ -38,6 +38,13 @@ class LibroManager(models.Manager):
         #   Libro.objects.add_autor_libro('2','4')
         return libro
 
+    def libros_num_prestamos(self):
+        resultado= self.aggregate(
+            num_prestamos=Count('libro_prestamo')
+        )
+        #   from applications.libro.models import *
+        #   Libro.objects.libros_num_prestamos()
+        return resultado
 
 class CategoriaManager(models.Manager):
 
