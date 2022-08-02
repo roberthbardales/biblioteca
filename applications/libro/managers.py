@@ -5,26 +5,43 @@ from django.db.models import Q
 
 class LibroManager(models.Manager):
 
-    def listar_libros(self,kword):
+    def listar_libros(self, kword):
 
         resultado = self.filter(
             titulo__icontains=kword,
-            fecha__range=('2000-01-01','2010-01-01')
+            fecha__range=('2000-01-01', '2010-01-01')
         )
         return resultado
 
-    def listar_libros3(self,kword,fecha1,fecha2):
+    def listar_libros3(self, kword, fecha1, fecha2):
 
-        date1=datetime.datetime.strptime(fecha1,"%Y-%m-%d").date()
-        date2=datetime.datetime.strptime(fecha2,"%Y-%m-%d").date()
+        date1 = datetime.datetime.strptime(fecha1, "%Y-%m-%d").date()
+        date2 = datetime.datetime.strptime(fecha2, "%Y-%m-%d").date()
 
         resultado = self.filter(
             titulo__icontains=kword,
-            fecha__range=(date1,date2)
+            fecha__range=(date1, date2)
         )
         return resultado
 
-    def listar_libros_categoria(self,categoria):
+    def listar_libros_categoria(self, categoria):
         return self.filter(
             categoria__id=categoria
         ).order_by('titulo')
+
+    def add_autor_libro(self,libro_id,autor):
+
+        libro = self.get(id=libro_id)
+        libro.autores.add(autor)
+        #   from applications.libro.models import *
+        #   Libro.objects.add_autor_libro('2','4')
+        return libro
+
+
+class CategoriaManager(models.Manager):
+
+    def categoria_por_autor(self, autor):
+
+        return self.filter(
+            categoria_libro__autores__id=autor
+        ).distinct()
