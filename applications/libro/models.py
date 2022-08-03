@@ -22,7 +22,6 @@ class Libro(models.Model):
         related_name='categoria_libro'
     )
     autores = models.ManyToManyField(Autor)
-
     titulo = models.CharField(
         max_length=50
     )
