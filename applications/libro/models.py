@@ -1,4 +1,10 @@
+from pickletools import optimize
 from django.db import models
+from django.db.models.signals import post_save
+
+#apps de tercero
+
+from PIL import Image
 
 from applications.autor.models import Autor
 
@@ -46,3 +52,12 @@ class Libro(models.Model):
         return self.filter(
             categoria__id=categoria
         ).order_by('titulo')
+
+def optimize_image(sender,instance,**kwargs):
+    print("========")
+    print(instance)
+    if instance.portada:
+        portada= Image.open(instance.portada.path)
+        portada.save(instance.portada.path,quality=20,optimize=True)
+
+post_save.connect(optimize_image,sender=Libro)
