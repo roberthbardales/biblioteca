@@ -7,7 +7,7 @@ from .import views
 urlpatterns = [
     path(
         'prestamo/add/',
-        views.RegistrarPrestamo.as_view(),
+        views.AddPrestamo.as_view(),
         name="prestamo-add"
     ),
 ]

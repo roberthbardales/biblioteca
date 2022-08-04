@@ -39,6 +39,7 @@ class Prestamo(models.Model):
 
         print('===========')
         self.libro.stok=self.libro.stok - 1
-        
+        self.libro.save()
+
     def __str__(self):
         return self.libro.titulo
