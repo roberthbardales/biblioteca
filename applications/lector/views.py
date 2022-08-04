@@ -65,6 +65,23 @@ class AddMultiplePrestamo(FormView):
     success_url= '.'
     
     def form_valid(self,form):
-        #
+        
+        print(form.cleaned_data['lector'])
+        print(form.cleaned_data['libros'])
+
+        prestamos= []
+        for l in form.cleaned_data['libros']:
+            prestamo= Prestamo(
+            lector=form.cleaned_data['lector'],
+            libro=l,
+            fecha_prestamo=date.today(),
+            devuelto=False
+            )
+            prestamos.append(prestamo)
+
+        Prestamo.objects.bulk_create(
+            prestamos
+        )
+
 
         return super(AddMultiplePrestamo,self).form_valid(form)
