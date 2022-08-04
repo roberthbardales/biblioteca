@@ -31,5 +31,9 @@ class RegistrarPrestamo(FormView):
 
         prestamo.save()
 
+        libro=form.cleaned_data['libro']
+        libro.stok=libro.stok-1
+        libro.save() 
+
         return super(RegistrarPrestamo,self).form_valid(form)
 

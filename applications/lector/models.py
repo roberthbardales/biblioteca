@@ -31,7 +31,14 @@ class Prestamo(models.Model):
         null=True
     )
     devuelto = models.BooleanField()
-
+    
     objects = PrestamoManager()
+
+    def save(self,*args,**kwargs):
+        super(Prestamo,self).save(*args,**kwargs)
+
+        print('===========')
+        self.libro.stok=self.libro.stok - 1
+        
     def __str__(self):
         return self.libro.titulo
