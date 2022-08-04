@@ -10,4 +10,9 @@ urlpatterns = [
         views.AddPrestamo.as_view(),
         name="prestamo-add"
     ),
+    path(
+        'prestamo/multiple-add/',
+        views.AddMultiplePrestamo.as_view(),
+        name="prestamo-add_multiple"
+    ),
 ]
