@@ -6,7 +6,7 @@ from django.db import models
 from .managers import AutorManager
 
 class Persona(models.Model):
-    nombres = models.CharField(
+    nombre = models.CharField(
         max_length=50
     )
     apellidos = models.CharField(
@@ -18,7 +18,7 @@ class Persona(models.Model):
     edad = models.PositiveIntegerField()
 
     def __str__(self):
-        return str(self.id)+'-'+ self.nombres + '-'+ self.apellidos
+        return str(self.id)+'-'+ self.nombre + '-'+ self.apellidos
 
     class Meta:
         abstract=True

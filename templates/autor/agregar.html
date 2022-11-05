@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Editar Autor
+{% endblock title %}
+
+{% block content %}
+
+{% include "includes/header.html" %}
+<br>
+<br>
+<br>
+
+<div class="container">
+  <form method="post">{% csrf_token %}
+    <div class="row mb-3">
+      <h3 >Agregar Autores</h3>
+    </div>
+    
+    <div class="row g-3 mt-3">
+          <div class="col-6">
+            <h6>Nombre</h6>
+          {{form.nombre}}
+          </div>
+
+          <div class="col-6">
+            <h6>Apellidos</h6>
+            {{form.apellidos}}
+          </div>
+          
+          <div class="col-6">
+            <h6>Nacionalidad</h6>
+            {{form.nacionalidad}}
+          </div>
+
+          <div class="col-6">
+            <h6>Edad</h6>
+            {{form.edad}}
+          </div>
+
+          <div class="col-6">
+            <h6>Seudonimo</h6>
+            {{form.seudonimo}}
+          </div>
+        </div>
+        <div class="col-6"></div>
+
+
+          <div class="row mb-3 justify-content-center">
+            <div class="col-4">
+              <button class="btn btn-primary" type="submit">Agregar</button>
+            </div>
+          </div>
+    </div>
+    </form>
+
+</div>
+
+<!-- <form action="" method="post">{% csrf_token %}
+  {{form.as_p}}
+<button type="submit">Agregar</button>
+</form> -->
+
+{% endblock content %}
