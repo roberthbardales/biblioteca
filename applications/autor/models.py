@@ -1,5 +1,4 @@
-from abc import abstractclassmethod
-from msilib.schema import Class, ListView
+
 from pyexpat import model
 from django.db import models
 # managers
