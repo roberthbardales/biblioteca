@@ -30,4 +30,3 @@ class Autor(Persona):
         blank= True
         )
     objects=AutorManager()
-

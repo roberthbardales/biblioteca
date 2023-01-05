@@ -18,6 +18,11 @@ urlpatterns = [
         name="listar-autores"
     ),
     path(
+        'autores',
+        views.ListarAutores2.as_view(),
+        name="autores"
+    ),
+    path(
         'detalle-autores/<pk>',
         views.AutorDetailView.as_view(),
         name="detalle-autores"

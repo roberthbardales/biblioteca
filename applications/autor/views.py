@@ -30,6 +30,13 @@ class BuscarAutor(ListView):
 
 class ListarAutores(ListView):
 
+    # context_object_name='lista_autores'
+    # template_name='autor/lista.html'
+
+    # def get_queryset(self):
+    #     return  Autor.objects.all()
+
+
     template_name ="autor/lista.html"
     # model = Autor
     paginate_by = 10
@@ -43,6 +50,15 @@ class ListarAutores(ListView):
             nombre__icontains=palabra_clave
         ).order_by('id')
         return lista
+
+class ListarAutores2(ListView):
+    
+    context_object_name='lista_autores2'
+    template_name='autor/lista2.html'
+
+    def get_queryset(self):
+        palabra_clave=self.request.GET.get('kword','')
+        return  Autor.objects.buscar_autor(palabra_clave)
 
 class AutorDetailView(DetailView):
     model = Autor

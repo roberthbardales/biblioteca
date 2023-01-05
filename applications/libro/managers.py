@@ -14,6 +14,14 @@ class LibroManager(models.Manager):
             fecha__range=('2000-01-01', '2010-01-01')
         )
         return resultado
+    
+    def listar_libros2(self, kword,fecha1,fecha2):
+
+        resultado = self.filter(
+            titulo__icontains=kword,
+            fecha__range=(fecha1,fecha2)
+        )
+        return resultado
 
     def listar_libros_trg(self, kword):
 
