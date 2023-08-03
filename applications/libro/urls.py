@@ -4,27 +4,38 @@ from django.urls import path
 
 from .import views
 
+app_name = "libro_app"
+
 urlpatterns = [
     path(
-        'libros/',
-        views.ListLibros.as_view(),
-        name="libros"
-    ),
-    path(
-        'libros2/',
+        'listar-libros/',
         views.ListLibrosZero.as_view(),
-        name="libros"
+        name="listar-libros"
     ),
+    # path(
+    #     'listar-libros/',
+    #     views.ListarAutores.as_view(),
+    #     name="listar-libros"
+    # ),
     path(
-        'libros-2/',
-        views.ListLibros2.as_view(),
-        name="libros2"
-    ),
-
-    path(
-        'libro-detalle/<pk>/',
+        'detalle-libros/<pk>/',
         views.LibroDetailView.as_view(),
-        name="libro-detalle"
+        name="detalle-libros"
+    ),
+        path(
+        'modificar-libros/<pk>',
+        views.LibroUpdateView.as_view(),
+        name="modificar-libros"
+    ),
+    path(
+        'eliminar-libros/<pk>',
+        views.AutorDeleteView.as_view(),
+        name="eliminar-libros"
+    ),
+    path(
+        'agregar-libros/',
+        views.LibroCreateView.as_view(),
+        name="agregar-libros"
     ),
     path(
         'libros-trg/',

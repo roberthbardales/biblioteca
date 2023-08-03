@@ -9,49 +9,65 @@
 <br>
 
 <div class="container">
-    <div class="row">
-        <div class="col-12">
-            <h1 class="text-center"style="background-color:skyblue">Autores</h1>
+    <div class="row" >
+        <div class="col-12" >
+            <h1 class="text-center" style="background-color:red">Lectores</h1>
         </div>
     </div>
     <form action="" method="get">{% csrf_token %}
-    <div class="row justify-content">
-            <div class="col-8 input-group">
-                <input type="text" class="form-control" id="kword" name="kword" placeholder="autor..." aria-label="" aria-describedby="basic-addon1">
-                <div class="input-group-append">
-                    <button class="btn btn-success" type="submit">Buscar</button>
+        <div class="row justify-content">
+                <div class="col-8 input-group">
+                    <input type="text" class="form-control" id="kword" name="kword" placeholder="libro..." aria-label="" aria-describedby="basic-addon1">
+                    <div class="input-group-append">
+                        <button class="btn btn-success" type="submit">Buscar</button>
+                    </div>
+                </div>
+                <div class="col-4">
+                        <a class="btn btn-primary btn-block" href="{% url 'lector_app:agregar-lectores' %}">Agregar Lectores</a>
+
                 </div>
             </div>
-            <div class="col-4">
-                    <a class="btn btn-primary btn-block" href="{% url 'autor_app:agregar-autores' %}">Agregar Autor</a>
-            </div>
-        </div>
-    </form>
+        </form>
+
 
     <div class="row">
         <div class="col-12">
+
             <table class="table table-responsive-lg table-striped table-bordered table-hover ">
+
                     <tr class="table-primary">
-                    <th>Codigo</th>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
+                    <th>ID</th>
+                    <th>nombre</th>
+                    <th>apellidos</th>
+                    <th>nacionalidad</th>
+                    <th>edad</th>
                     <th class="text-center">Accion</th>
                   </tr>
 
                 <tbody>
-                    {% for a in autores %}
+                    {% for a in lectores %}
                   <tr>
                     <td>{{a.id}}</td>
                     <td>{{a.nombre}}</td>
                     <td>{{a.apellidos}}</td>
+                    <td>{{a.nacionalidad}}</td>
+                    <td>{{a.edad}}</td>
+
+                    <!-- <td>{{a.autores.all}}</td> -->
+                    <!-- <td>
+                        {% for h in a.autores.all %}
+                          <li>{{ h.nombre }} - {{h.apellidos}}</li>
+                        {% endfor %}
+                    </td> -->
+
 
                     <td class="text-center">
-                        <a class="btn btn-info" href="{% url 'autor_app:detalle-autores' a.id %}">Ver</a>
-                        <a class="btn btn-warning" href="{% url 'autor_app:modificar-autores' a.id %}">Editar </a>
-                        <a class="btn btn-danger" href="{% url 'autor_app:eliminar-autores' a.id %}">Eliminar </a>
+
+                        <!-- <a class="btn btn-info" href="{% url 'libro_app:detalle-libros' a.id %}">Ver</a> -->
+                        <a class="btn btn-info" href="{% url 'lector_app:detalle-lectores' a.id %}">Ver</a>
+                        <a class="btn btn-warning" href="{% url 'lector_app:modificar-lectores' a.id %}">Editar </a>
+                        <a class="btn btn-danger" href="{% url 'lector_app:eliminar-lectores' a.id %}">Eliminar </a>
                     </td>
-
-
 
                   </tr>
                   {% endfor %}

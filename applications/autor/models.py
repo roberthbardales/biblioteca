@@ -21,7 +21,7 @@ class Persona(models.Model):
 
     class Meta:
         abstract=True
-        
+
 
 class Autor(Persona):
     seudonimo = models.CharField(

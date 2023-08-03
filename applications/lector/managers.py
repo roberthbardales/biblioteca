@@ -15,7 +15,7 @@ class PrestamoManager(models.Manager):
             promedio_edad=Avg('lector__edad'),
             suma_edad=Sum('lector__edad')
         )
-        #   from applications.lector.models import * 
+        #   from applications.lector.models import *
         #   Prestamo.objects.libros_promedio_edades()
         return resultado
     def num_libros_prestados(self):
@@ -30,7 +30,7 @@ class PrestamoManager(models.Manager):
             print('=========')
             print(r,r['num_prestados'])
 
-        #   from applications.lector.models import * 
+        #   from applications.lector.models import *
         #   Prestamo.objects.num_libros_prestados()
 
         return resultado

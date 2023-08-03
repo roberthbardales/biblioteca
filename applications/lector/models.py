@@ -19,11 +19,11 @@ class Lector(Persona):
 
 class Prestamo(models.Model):
     lector = models.ForeignKey(
-        Lector, 
+        Lector,
         on_delete=models.CASCADE
     )
     libro = models.ForeignKey(
-        Libro, 
+        Libro,
         on_delete=models.CASCADE,
         related_name='libro_prestamo'
     )
@@ -33,7 +33,7 @@ class Prestamo(models.Model):
         null=True
     )
     devuelto = models.BooleanField()
-    
+
     objects = PrestamoManager()
 
     def save(self,*args,**kwargs):

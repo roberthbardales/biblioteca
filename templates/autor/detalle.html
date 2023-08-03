@@ -2,7 +2,7 @@
 
 
 {% block content %}
-    
+
 {% include 'includes/header.html' %}
 <br>
 <br>
@@ -30,7 +30,7 @@
                       <th class="text-center" colspan="2">
                         <h4>
                           Datos Personales
-                          
+
                         </h4>
                       </th>
                     </tr>
@@ -63,7 +63,8 @@
         </div>
     </div>
     <div class="row justify-content-center">
-      <a class="btn btn-success" href="{% url 'autor_app:listar-autores' %}">Regresar</a>
+      <!-- <a class="btn btn-success" href="{% url 'autor_app:listar-autores' %}">Regresar</a> -->
+      <input type="button" class="btn btn-success" value="Página anterior" onClick="history.go(-1);">
 
     </div>
 </div>

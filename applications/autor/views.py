@@ -29,17 +29,13 @@ class BuscarAutor(ListView):
 
 
 class ListarAutores(ListView):
-
     # context_object_name='lista_autores'
     # template_name='autor/lista.html'
-
     # def get_queryset(self):
     #     return  Autor.objects.all()
-
-
     template_name ="autor/lista.html"
     # model = Autor
-    paginate_by = 10
+    paginate_by = 4
     ordering='id'
     context_object_name = 'autores'
 
@@ -52,7 +48,7 @@ class ListarAutores(ListView):
         return lista
 
 class ListarAutores2(ListView):
-    
+
     context_object_name='lista_autores2'
     template_name='autor/lista2.html'
 
@@ -70,7 +66,7 @@ class AutorDetailView(DetailView):
         context['ejemplo'] = 'contexto ejemplo'
         return context
 
- 
+
 class AutorCreateView(CreateView):
     model = Autor
     template_name = "autor/agregar.html"
@@ -81,12 +77,9 @@ class AutorCreateView(CreateView):
         'nacionalidad',
         'edad',
         'seudonimo',
-
     ]
 
-
     success_url=reverse_lazy('autor_app:listar-autores')
-
 
 class AutorUpdateView(UpdateView):
     template_name = "autor/modificar.html"
@@ -97,7 +90,6 @@ class AutorUpdateView(UpdateView):
 class AutorDeleteView(DeleteView):
     model = Autor
     template_name = "autor/eliminar.html"
-    success_url = reverse_lazy('persona_app:emplados_admin')
     success_url=reverse_lazy('autor_app:listar-autores')
 
 

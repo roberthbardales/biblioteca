@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Editar Autor
+{% endblock title %}
+
+{% block content %}
+
+{% include "includes/header.html" %}
+<br>
+<br>
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3 >Agregar Libros</h3>
+    </div>
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+      <div class="col-12">
+        {{form.as_p}}
+      </div>
+
+      <div class="col-12">
+        <button class="btn btn-primary btn-block" type="submit">Agregar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- <div class="container">
+  <form method="post" enctype="multipart/form-data" >{% csrf_token %}
+    <div class="row mb-3">
+      <h3 >Agregar Libros</h3>
+    </div>
+      <div class="row g-3 mt-3">
+          <div class="col-4">
+            <h6>categoria</h6>
+          {{form.categoria}}
+          </div>
+
+          <div class="col-4">
+            <h6>autores</h6>
+            {{form.autores}}
+          </div>
+
+          <div class="col-4">
+            <h6>titulo</h6>
+            {{form.titulo}}
+          </div>
+
+          <div class="col-6">
+            <h6>fecha</h6>
+            {{form.fecha}}
+          </div>
+
+          <div class="col-6">
+            <h6>visitas</h6>
+            {{form.visitas}}
+          </div>
+          <div class="col-6">
+            <h6>stok</h6>
+            {{form.stok}}
+          </div>
+          <div class="col-6">
+            <h6>portada</h6>
+            {{form.portada}}
+          </div>
+        </div>
+         <div class="row mb-3 justify-content-center">
+            <div class="col-6">
+              <button class="btn btn-primary btn-block" type="submit">Agregar</button>
+            </div>
+          </div>
+      </div>
+  </form>
+</div> -->
+
+<!-- <form action="" method="post">{% csrf_token %}
+  {{form.as_p}}
+<button type="submit">Agregar</button>
+</form> -->
+
+{% endblock content %}

@@ -18,7 +18,9 @@ class Categoria(models.Model):
     objects=CategoriaManager()
 
     def __str__(self):
-        return str(self.id) + ' - '+ self.nombre
+        return self.nombre
+        # return str(self.id) + ' - '+ self.nombre
+
 
 
 class Libro(models.Model):

@@ -1,23 +1,63 @@
-<h1>Detalle del libro</h1>
+{% extends 'base.html' %}
 
-<p>{{libro.titulo}}</p>
-<p>{{libro.fecha}}</p>
-<p>{{libro.categoria}}</p>
-<p>----------many to many------------</p>
+{% load static %}
+{% block content %}
 
-<ul>
+{% include 'includes/header.html' %}
+<br>
+<br>
+<br>
 
-{% for autor in libro.autores.all %}
-    <li>{{autor}}</li>
-{% endfor %}
-    
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center">Lector: {{ lector.nombre}}</h1>
+        </div>
+    </div>
 
-</ul>
+<br>
+    </div>
+    <div class="row">
+        <div class="col-12 ">
+            <table class="table table-responsive-lg table-striped table-bordered table-hover ">
+                  <tr class="table-primary ">
+                    <tr>
+                      <th class="text-center" colspan="2">
+                        <h4>
+                          Datos Personales
+                        </h4>
+                      </th>
+                    </tr>
+                    <th>Codigo</th>
+                    <td>{{lector.id}}</td>
+                    <tr>
+                      <th>Titulo</th>
+                      <td>{{lector.nombre}}</td>
+                    </tr>
+                    <tr>
+                      <th>categoria</th>
+                      <td>{{lector.apellidos}}</td>
+                    </tr>
+                    <tr>
+                      <th>fecha</th>
+                      <td>{{lector.nacionalidad}}</td>
+                    </tr>
+                    <tr>
+                      <th>fecha</th>
+                      <td>{{lector.edad}}</td>
+                    </tr>
 
-<p>--------agregar autores------</p>
+                  </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+      <!-- <a class="btn btn-success" href="{% url 'libro_app:listar-libros' %}">Regresar</a> -->
 
-<form method="POST">
-    <input type="text" placeholder="agregar autor">
-    <button type="submit">guardar</button>
+      <input type="button" class="btn btn-success" value="Página anterior" onClick="history.go(-1);">
+    </div>
+    <br>
+</div>
 
-</form>
+
+{% endblock content %}

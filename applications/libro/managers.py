@@ -6,15 +6,23 @@ from django.contrib.postgres.search import TrigramSimilarity
 
 
 class LibroManager(models.Manager):
+    """ managers para el modelo Libro"""
 
-    def listar_libros(self, kword):
+    def Listar_libros(self, kword):
 
-        resultado = self.filter(
-            titulo__icontains=kword,
-            fecha__range=('2000-01-01', '2010-01-01')
-        )
+        resultado = self.all()
         return resultado
-    
+
+
+
+
+
+
+
+
+
+
+
     def listar_libros2(self, kword,fecha1,fecha2):
 
         resultado = self.filter(
@@ -31,9 +39,9 @@ class LibroManager(models.Manager):
             )
             return resultado
         else:
-        
+
             return self.all()[:10]
-        return resultado        
+        return resultado
 
     def listar_libros3(self, kword, fecha1, fecha2):
 
@@ -58,7 +66,7 @@ class LibroManager(models.Manager):
         #   from applications.libro.models import *
         #   Libro.objects.add_autor_libro('2','4')
         return libro
-    
+
     def num_libros_prestados(self):
         resultado=self.annotate(
             num_prestados=Count('libro_prestamo')
@@ -67,7 +75,7 @@ class LibroManager(models.Manager):
             print('=========')
             print(r,r.num_prestados)
 
-        #   from applications.libro.models import * 
+        #   from applications.libro.models import *
         #   Libro.objects.num_libros_prestados()
 
         return resultado
@@ -96,5 +104,5 @@ class CategoriaManager(models.Manager):
         #   Categoria.objects.listar_categoria_libros()
         for r in resultado:
             print('***********')
-            print(r,r.num_libros)    
+            print(r,r.num_libros)
         return resultado
