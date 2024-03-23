@@ -12,11 +12,11 @@ urlpatterns = [
         views.ListLibrosZero.as_view(),
         name="listar-libros"
     ),
-    # path(
-    #     'listar-libros/',
-    #     views.ListarAutores.as_view(),
-    #     name="listar-libros"
-    # ),
+    path(
+        'listar_libros2/',
+        views.ListLibros2.as_view(),
+        name="listar_libros2"
+    ),
     path(
         'detalle-libros/<pk>/',
         views.LibroDetailView.as_view(),

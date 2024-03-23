@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
-
 {% load static %}
 {% block content %}
-
 {% include 'includes/header.html' %}
 <br>
 <br>
 <br>
+<!-- <h1>{{ejemplo}}</h1> -->
 
+</h1>
+</h1>
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1 class="text-center">Lector: {{ lector.nombre}}</h1>
+            <h1 class="text-center">Libro: {{ libro.titulo}}</h1>
         </div>
     </div>
 
@@ -29,22 +30,37 @@
                       </th>
                     </tr>
                     <th>Codigo</th>
-                    <td>{{lector.id}}</td>
+                    <td>{{libro.id}}</td>
                     <tr>
-                      <th>Titulo</th>
-                      <td>{{lector.nombre}}</td>
+                    <th>Categoria</th>
+                    <td>{{libro.categoria}}</td>
+                    <tr>
+                      <th>Autores</th>
+                      <td>
+                        {% for item in libro.autores.all %}
+                        <li>
+                          {{item.nombre}} {{item.apellidos}}
+                        </li>
+                        {% endfor %}
+                      </td>
                     </tr>
                     <tr>
-                      <th>categoria</th>
-                      <td>{{lector.apellidos}}</td>
+                      <th>Fecha</th>
+                      <td>{{libro.fecha}}</td>
                     </tr>
                     <tr>
-                      <th>fecha</th>
-                      <td>{{lector.nacionalidad}}</td>
+                      <!-- <th>Portada</th>
+                      <td>{{libro.portada}}</td>
+                    </tr> -->
+                      <th>Portada</th>
+                      <td><img src="{{libro.portada.url}}" class="img-fluid" width="400px" height="300px" alt=""></td>
                     </tr>
                     <tr>
-                      <th>fecha</th>
-                      <td>{{lector.edad}}</td>
+                      <th>Visitas</th>
+                      <td>{{libro.visitas}}</td>
+                    </tr>
+                      <th>Stok</th>
+                      <td>{{libro.stok}}</td>
                     </tr>
 
                   </tr>

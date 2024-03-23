@@ -1,0 +1,21 @@
+
+<h1>
+    Resultado
+</h1>
+<ul>
+
+    {% for libro in lista_libros %}
+    <li>{{libro.categoria}}</li>
+        {% for a in libro.autores.all %}
+            <li>
+               {{a.nombre}}
+            </li>
+        {% endfor %}
+
+    <li>{{libro.titulo}}</li>
+    <li>{{libro.fecha}}</li>
+    <hr>
+    {% endfor %}
+</ul>
+
+    {{lista_libros}}

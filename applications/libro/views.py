@@ -92,7 +92,7 @@ class ListLibros2(ListView):
     template_name = 'libro/lista2.html'
 
     def get_queryset(self):
-        return Libro.objects.listar_libros_categoria('1')
+        return Libro.objects.listar_libros_categoria('2')
 
 
 # class LibroDetailView(DetailView):

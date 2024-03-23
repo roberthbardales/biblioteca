@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
+
+
 {% block content %}
+
 {% include 'includes/header.html' %}
 <br>
 <br>
 <br>
 
 <div class="container">
-    <div class="row">
-        <div class="col-12">
-            <h1 class="text-center" style="background-color:green">Libros</h1>
+    <div class="row" >
+        <div class="col-12" >
+            <h1 class="text-center" style="background-color:red">Lectores</h1>
         </div>
     </div>
     <form action="" method="get">{% csrf_token %}
@@ -20,7 +23,8 @@
                     </div>
                 </div>
                 <div class="col-4">
-                        <a class="btn btn-primary btn-block" href="{% url 'libro_app:agregar-libros' %}">Agregar Libro</a>
+                        <a class="btn btn-primary btn-block" href="{% url 'lector_app:agregar-lectores' %}">Agregar Lectores</a>
+
                 </div>
             </div>
         </form>
@@ -28,33 +32,41 @@
 
     <div class="row">
         <div class="col-12">
+
             <table class="table table-responsive-lg table-striped table-bordered table-hover ">
+
                     <tr class="table-primary">
                     <th>ID</th>
-                    <th>Titulo</th>
-                    <th>Categoria</th>
-                    <th>autor</th>
+                    <th>nombre</th>
+                    <th>apellidos</th>
+                    <th>nacionalidad</th>
+                    <th>edad</th>
                     <th class="text-center">Accion</th>
                   </tr>
 
                 <tbody>
-                    {% for a in autores %}
+                    {% for a in lectores %}
                   <tr>
                     <td>{{a.id}}</td>
-                    <td>{{a.titulo}}</td>
-                    <td>{{a.categoria}}</td>
+                    <td>{{a.nombre}}</td>
+                    <td>{{a.apellidos}}</td>
+                    <td>{{a.nacionalidad}}</td>
+                    <td>{{a.edad}}</td>
+
                     <!-- <td>{{a.autores.all}}</td> -->
-                    <td>
+                    <!-- <td>
                         {% for h in a.autores.all %}
                           <li>{{ h.nombre }} - {{h.apellidos}}</li>
                         {% endfor %}
-                    </td>
+                    </td> -->
 
 
                     <td class="text-center">
-                        <a class="btn btn-info" href="{% url 'libro_app:detalle-libros' a.id %}">Ver</a>
-                        <a class="btn btn-warning" href="{% url 'libro_app:modificar-libros' a.id %}">Editar </a>
-                        <a class="btn btn-danger" href="{% url 'libro_app:eliminar-libros' a.id %}">Eliminar </a>
+
+                        <!-- <a class="btn btn-info" href="{% url 'libro_app:detalle-libros' a.id %}">Ver</a> -->
+                        <a class="btn btn-info" href="{% url 'lector_app:detalle-lectores' a.id %}">Ver</a>
+                        <a class="btn btn-warning" href="{% url 'lector_app:modificar-lectores' a.id %}">Editar </a>
+                        <a class="btn btn-danger" href="{% url 'lector_app:eliminar-lectores' a.id %}">Eliminar </a>
                     </td>
 
                   </tr>

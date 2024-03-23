@@ -12,6 +12,7 @@ from .forms import PrestamoForm, MultiplePrestamoForm
 from django.urls import reverse_lazy
 
 
+""" Modelo Lector """
 class ListLectores(ListView):
 
     template_name ="lector/lista.html"
@@ -65,8 +66,7 @@ class LectorCreateView(CreateView):
 
     success_url=reverse_lazy('lector_app:listar-lectores')
 
-
-
+""" Modelo Prestamo """
 
 class RegistrarPrestamo(FormView):
     template_name='lector/add_prestamo.html'
@@ -95,6 +95,7 @@ class RegistrarPrestamo(FormView):
         libro.save()
 
         return super(RegistrarPrestamo,self).form_valid(form)
+
 
 class AddPrestamo(FormView):
     template_name='lector/add_prestamo.html'

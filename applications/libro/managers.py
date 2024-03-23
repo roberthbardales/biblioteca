@@ -15,14 +15,6 @@ class LibroManager(models.Manager):
 
 
 
-
-
-
-
-
-
-
-
     def listar_libros2(self, kword,fecha1,fecha2):
 
         resultado = self.filter(
@@ -94,7 +86,7 @@ class CategoriaManager(models.Manager):
 
         return self.filter(
             categoria_libro__autores__id=autor
-        ).distinct()
+        )
 
     def listar_categoria_libros(self):
         resultado= self.annotate(

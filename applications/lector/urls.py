@@ -8,16 +8,7 @@ from .import views
 app_name = "lector_app"
 
 urlpatterns = [
-    path(
-        'prestamo/add/',
-        views.AddPrestamo.as_view(),
-        name="prestamo-add"
-    ),
-    path(
-        'prestamo/multiple-add/',
-        views.AddMultiplePrestamo.as_view(),
-        name="prestamo-add_multiple"
-    ),
+    # lector
     path(
         'listar-lectores/',
         views.ListLectores.as_view(),
@@ -42,5 +33,16 @@ urlpatterns = [
         'agregar-lectores/',
         views.LectorCreateView.as_view(),
         name="agregar-lectores"
+    ),
+    # Prestamo
+    path(
+        'prestamo/add/',
+        views.AddPrestamo.as_view(),
+        name="prestamo-add"
+    ),
+    path(
+        'prestamo/multiple-add/',
+        views.AddMultiplePrestamo.as_view(),
+        name="prestamo-add_multiple"
     ),
 ]
