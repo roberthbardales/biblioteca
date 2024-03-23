@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% include 'includes/header.html' %}
+<br>
+<br>
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center">Lector: {{ lector.nombre}} {{ lector.apellidos}} </h1>
+        </div>
+    </div>
+
+    <div class="row">
+
+<br>
+
+    </div>
+    <div class="row">
+        <div class="col-12 ">
+            <table class="table table-responsive-lg table-striped table-bordered table-hover ">
+
+                  <tr class="table-primary ">
+
+                    <tr>
+                      <th class="text-center" colspan="2">
+                        <h4>
+                          Datos Personales
+
+                        </h4>
+                      </th>
+                    </tr>
+                    <th>Codigo</th>
+                    <td>{{lector.id}}</td>
+                    <tr>
+                      <th>Nombre</th>
+                      <td>{{lector.nombre}}</td>
+
+                    </tr>
+                    <tr>
+                      <th>Apellidos</th>
+                      <td>{{lector.apellidos}}</td>
+
+                    </tr>
+                    <tr>
+                      <th>Nacionalidad</th>
+                      <td>{{lector.nacionalidad}}</td>
+                    </tr>
+                    <tr>
+                      <th>Edad</th>
+                      <td>{{lector.edad}}</td>
+                    </tr>
+
+                  </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+      <!-- <a class="btn btn-success" href="{% url 'autor_app:listar-autores' %}">Regresar</a> -->
+      <input type="button" class="btn btn-success" value="Página anterior" onClick="history.go(-1);">
+
+    </div>
+</div>
+
+
+{% endblock content %}

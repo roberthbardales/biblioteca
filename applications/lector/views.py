@@ -32,7 +32,7 @@ class ListLectores(ListView):
 
 class LectorDetailView(DetailView):
     model = Lector
-    template_name = "libro/detalle.html"
+    template_name = "lector/detalle.html"
 
     def get_context_data(self, **kwargs):
         context = super(LectorDetailView, self).get_context_data(**kwargs)
